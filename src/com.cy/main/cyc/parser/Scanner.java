@@ -11,6 +11,11 @@ public class Scanner {
     private int index;
     private int clearIndex;
 
+    /**
+     * 检测字符
+     * @param chars
+     * @return
+     */
     public char[] checkChar(char[] chars){
         if(chars.length > 0){
             buf = chars;
@@ -56,25 +61,25 @@ public class Scanner {
                     System.out.println("位置"+index+"未知符号! "+c);
                     break;
             }
-
             index++;
         }while (index < buf.length);
         return buf;
     }
 
+    /**
+     * 清除注释
+     */
     public void clearAnnotation(){
         clearIndex = index;
         do {
             char c = buf[clearIndex];
             if(c == '\r'){
-                if(index == 0) {
+                if(index == 0) {//去掉开头注释
                     int length = buf.length - clearIndex -2;
                     char[] newChars = new char[length];
                     System.arraycopy(buf,clearIndex+2,newChars,0,length);
                     buf = newChars;
-                }else if(index == buf.length){
-
-                }else{
+                }else{//去掉中间注释
                     char[] header = new char[index];
                     int endSize = buf.length - clearIndex;
                     char[] end = new char[endSize];
@@ -87,7 +92,7 @@ public class Scanner {
                     System.arraycopy(end,0,buf,index,endSize);
                 }
                 break;
-            }else if(clearIndex == buf.length){
+            }else if(clearIndex == buf.length){//去掉尾注释
                 char[] header = new char[index];
                 System.arraycopy(buf,0,header,0,index);
                 buf = new char[index];

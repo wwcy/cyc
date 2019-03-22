@@ -15,7 +15,9 @@ public class CyCompiler {
 
 
     public void compile(List<String> sourceFiles){
-        parserChar(parseFiles(sourceFiles));
+        List<char[]> arryChar = parserChar(parseFiles(sourceFiles));
+        arryChar.stream().forEach(System.out::println);
+        //下一步处理语法
     }
 
     /**
@@ -31,6 +33,11 @@ public class CyCompiler {
         return sourceChar;
     }
 
+    /**
+     * 字符过滤
+     * @param sourceChar
+     * @return
+     */
     public List<char[]> parserChar(List<CharBuffer> sourceChar){
         List<char[]> charBufferList = new ArrayList<>();
         for (CharBuffer c :sourceChar) {
