@@ -2,11 +2,10 @@ package cyc.main;
 
 import cyc.file.DefaultFileObject;
 import cyc.parser.Scanner;
-import cyc.parser.Token;
-
 import java.nio.CharBuffer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by wcy on 2019/3/20.

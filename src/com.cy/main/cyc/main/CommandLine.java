@@ -55,6 +55,6 @@ public class CommandLine {
         System.out.println("用法：cyc <选项> <源文件>");
         System.out.println("    -help：                      输出标准选项的提要");
         System.out.println("    -version：                   版本信息");
-        System.out.println("    -sourcepath：                指定查找输入源文件的位置");
+        System.out.println("    -sourcePath：                指定查找输入源文件的位置");
     }
 }
