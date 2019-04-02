@@ -1,7 +1,10 @@
 package cyc.main;
 
 import cyc.file.DefaultFileObject;
+import cyc.parser.DefaultSyntaxTree;
 import cyc.parser.Scanner;
+import cyc.parser.Token;
+
 import java.nio.CharBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,17 +22,8 @@ public class CyCompiler {
         //下一步处理语法
     }
 
-    /**
-     * 源文件读取
-     * @param sourceFiles
-     * @return
-     */
-    public List<CharBuffer> parseFiles(List<String> sourceFiles){
-        List<CharBuffer> sourceChar = new ArrayList<>();
-        for (String sourceFile :sourceFiles) {
-            sourceChar.add(DefaultFileObject.getCharContent(sourceFile));
-        }
-        return sourceChar;
+    public void parserSymbol(List<char[]> arryChar){
+       // new DefaultSyntaxTree().symbolRedirect(arryChar[0]);
     }
 
     /**
@@ -43,6 +37,19 @@ public class CyCompiler {
             charBufferList.add(new Scanner().checkChar(c.array()));
         }
         return charBufferList;
+    }
+
+    /**
+     * 源文件读取
+     * @param sourceFiles
+     * @return
+     */
+    public List<CharBuffer> parseFiles(List<String> sourceFiles){
+        List<CharBuffer> sourceChar = new ArrayList<>();
+        for (String sourceFile :sourceFiles) {
+            sourceChar.add(DefaultFileObject.getCharContent(sourceFile));
+        }
+        return sourceChar;
     }
 
 }
